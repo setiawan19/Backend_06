@@ -1,0 +1,27 @@
+soal no 1 
+
+1.Tuliskan langkah-langkah/urutan query MySQL untuk membuat sebuah database "Toko" yang memiliki tabel "Produk" dengan data sebagai berikut:
+- cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+- mysql.exe -u setiawan -pwan1 (login user)
+- create database toko;
+- create table produk(
+	no int not null auto_increment, 
+	namaproduk varchar(30) not null,
+	penjual varchar(30) not null,
+	kota varchar(30) not null,
+	kategori varchar(30) not null,
+	harga int not null,
+	berat float(3.1) not null,
+	primary key(no));
+-insert into produk values(null,'Gamis Tsurayya','HijUp Strore','Bandung','Fashion',300000, 1.5);
+-insert data baris selanjutnya sama dengan yg di atas..
+
+2.Dari tabel "Produk" di database "Toko", tuliskan query MySQL untuk menampilkan seluruh data, dikelompokkan berdasarkan kolom kota. Hasil yang diharapkan sebagai berikut:
+-select * from produk order by field(kota,'Bali', 'Bandung', 'Jakarta','Tangerang','Semarang', 'Surabaya');
+
+3. Dari tabel "Produk" di database "Toko", tuliskan query MySQL untuk menampilkan data produk dengan harga tertinggi di setiap kota, kemudian diurutkan berdasarkan kolom harga. Hasil yang diharapkan sebagai berikut:
+- select * from produk
+	group by kota
+	order by max(harga)desc;
+4. Dari tabel "Produk" di database "Toko", tuliskan query MySQL untuk menampilkan data produk dengan harga terendah. Hasil yang diharapkan sebagai berikut:
+- select * from produk order by harga asc limit 1;
